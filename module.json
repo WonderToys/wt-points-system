@@ -1,0 +1,34 @@
+{
+	"name": "PointsSystem",
+	"version": "0.1.2",
+	"author": "WonderToys",
+	"description": "The official Points System for WonderTools!",
+	"entry": "PointsSystemModule.js",
+	"commands": [
+		"./commands/AddPointsCommand.js",
+		"./commands/GivePointsCommand.js",
+		"./commands/PointsCommand.js",
+		"./commands/RemovePointsCommand.js"
+	],
+	"variables": [
+		"./variables/JackpotVariable.js",
+		"./variables/PointsNameVariable.js",
+		"./variables/PointsVariable.js"
+	],
+	"providers": [
+		"./providers/jackpotStore.js",
+		"./providers/pointsStore.js"
+	],
+	"ui": {
+		"panels": {
+			"MainPanel": {
+				"template": "./ui/panels/mainPanel.html",
+				"script": "./ui/panels/mainPanel.js"
+			}
+		},
+		"extensions": {
+			"$ViewersPanel": "./ui/extensions/viewerPanel.js",
+			"$CommandEditor": "./ui/extensions/commandEditor.js"
+		}
+	}
+}

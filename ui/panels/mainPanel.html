@@ -1,0 +1,46 @@
+<div id="pointSystemMainPanel" wait-for="model">
+  <div class="row" style="margin-bottom: 0px;">
+    <div class="input-field col s6">
+      <input id="pointsName" type="text" min="1" v-model="pointsName" @change="updateConfig()">
+      <label for="pointsName" class="active">Points Name</label>
+    </div>
+
+    <div class="input-field col s6">
+      <input id="updateInterval" type="number" min="1" v-model.number="updateInterval" @change="updateConfig()">
+      <label for="updateInterval" class="active">Update Interval (minutes)</label>
+    </div>
+  </div>
+
+  <div class="row" style="margin-bottom: 0px;">
+    <div class="input-field col s6">
+      <input id="awardAmount" type="number" min="1" v-model.number="awardAmount" @change="updateConfig()">
+      <label for="awardAmount" class="active">Award Amount</label>
+    </div>
+
+    <div class="input-field col s6">
+      <input id="subscriberBonus" type="number" min="0" v-model.number="subscriberBonus" @change="updateConfig()">
+      <label for="subscriberBonus" class="active">Subscriber Bonus</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li v-for="command in commands">
+        <div class="collapsible-header">
+          {{ command.command }}
+          <span class="grey-text" style="font-size: 0.8rem;">
+            {{ command.description }}
+          </span>
+          <div class="right" style="display: inline-block; height: 25px; margin-top: 0.75rem;">
+            <input class="filled-in" :id="`${ command.config._id }_enabled`" type="checkbox" v-model="command.config.isEnabled" />
+            <label :for="`${ command.config._id }_enabled`" data-position="top" data-tooltip="Disable this command" v-if="command.config.isEnabled === true" />
+            <label :for="`${ command.config._id }_enabled`" data-position="top" data-tooltip="Enable this command" v-else />
+          </div>
+        </div>
+        <div class="collapsible-body">
+          <command-editor :command="command" :hide-fields="[ 'isEnabled' ]" />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
