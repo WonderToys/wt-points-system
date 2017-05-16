@@ -15,6 +15,14 @@ class PointsVariable extends Variable {
     return '$points';
   }
 
+  get description() {
+    return 'Gets the number of points the user who called the command has.';
+  }
+
+  get usage() {
+    return '$points';
+  }
+
   // -----
   //  Public
   // -----

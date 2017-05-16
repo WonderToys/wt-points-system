@@ -15,6 +15,14 @@ class PointsNameVariable extends Variable {
     return '$pointsName';
   }
 
+  get description() {
+    return 'Gets the configured name of the points.';
+  }
+
+  get usage() {
+    return '$pointsName';
+  }
+
   // -----
   //  Public
   // -----

@@ -15,6 +15,14 @@ class JackpotVariable extends Variable {
     return '$jackpot';
   }
 
+  get description() {
+    return 'Get, add, or remove from a jackpot. Action defaults to get. NAME defaults to the called command. USER defaults to the user who called the command.';
+  }
+
+  get usage() {
+    return '$jackpot([get|add|remove|empty], NAME, USER, [AMOUNT])';
+  }
+
   // -----
   //  Private
   // -----
