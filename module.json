@@ -1,6 +1,6 @@
 {
 	"name": "PointsSystem",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"author": "WonderToys",
 	"description": "The official Points System for WonderTools!",
 	"entry": "PointsSystemModule.js",

@@ -4,11 +4,13 @@ const pointsStore = require('../../providers/pointsStore');
 module.exports = {
   add: {
     value(command) {
+      const commandId = command.command.replace(/[\W]/g, '');
+      
       if ( command.metadata.pointsCost == null ) {
         command.metadata.pointsCost = 0;
       }
 
-      $('body').on('blur', `#PointsStore_${ command.command.replace('!', '') }_pointsCost`, function() {
+      $('body').on('blur', `#PointsSystem_${ commandId }_pointsCost`, function() {
         const $this = $(this);
         let cost = parseInt($this.val());
 
@@ -21,8 +23,8 @@ module.exports = {
 
       return `
         <div class="input-field col s12">
-          <input id="PointsStore_${ command.command.replace('!', '') }_pointsCost" type="number" min="0" value="${ command.metadata.pointsCost }" />
-          <label class="active" for="PointsStore_${ command.command.replace('!', '') }_pointsCost">
+          <input id="PointsSystem_${ commandId }_pointsCost" type="number" min="0" value="${ command.metadata.pointsCost }" />
+          <label class="active" for="PointsSystem_${ commandId }_pointsCost">
             Points Cost
           </label>
         </div>`;
